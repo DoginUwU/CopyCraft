@@ -3,9 +3,9 @@
 
 #include "CopyCraft.h"
 
-using namespace std;
-
 int main()
 {
-	Engine* engine = new Engine();
+	new Engine();
+
+	return 0;
 }
