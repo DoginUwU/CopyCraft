@@ -1,7 +1,6 @@
 #ifndef SHADERPROGRAM_H
 #define SHADERPROGRAM_H
 #pragma once
-
 #include "shader.h"
 
 class ShaderProgram {
