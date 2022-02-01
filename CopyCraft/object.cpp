@@ -27,8 +27,8 @@ void Object::updateShaders()
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texture));
 
 	Shader::setUniform(shaders->programId, "uTransform", transform->getTransform());
-	Shader::setUniform(shaders->programId, "uProjection", Engine::primaryCamera->projection);
-	Shader::setUniform(shaders->programId, "uView", Engine::primaryCamera->transform->getTransform());
+	Shader::setUniform(shaders->programId, "uProjection", GameController::primaryCamera->projection);
+	Shader::setUniform(shaders->programId, "uView", GameController::primaryCamera->transform->getTransform());
 
 	glUseProgram(shaders->programId);
 

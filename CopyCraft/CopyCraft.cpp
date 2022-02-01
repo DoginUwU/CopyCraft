@@ -17,10 +17,16 @@ int main()
 {
 	Engine* engine = new Engine();
 
-	engine->primaryWindow = new Window(1270, 720, "CopyCraft", true);
-	engine->primaryCamera = new FlyCamera();
+	GameController::primaryWindow = new Window(1270, 720, "CopyCraft", true);
+	GameController::primaryCamera = new FlyCamera();
 
 	engine->initialize();
+
+	Object* testObject = new Object("Kanna");
+	testObject->setMesh(new Mesh(triangles));
+	testObject->setTexture(new Texture("textures/test.jpg"));
+
+	GameObject::addGameObject(testObject);
 
 	while (!engine->shouldClose()) {
 		engine->update();

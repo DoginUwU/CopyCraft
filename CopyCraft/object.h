@@ -6,7 +6,7 @@
 #include "shader-program.h"
 #include "texture.h"
 #include "file.h"
-#include "engine.h"
+#include "game-controller.h"
 
 class Object {
 public:

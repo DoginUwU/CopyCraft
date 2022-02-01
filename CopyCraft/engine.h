@@ -11,6 +11,8 @@
 #include "input.h"
 #include "vertex.h"
 #include "fly-camera.h"
+#include "game-controller.h"
+#include "game-object.h"
 
 class Engine {
 public:
@@ -19,7 +21,5 @@ public:
 	void update();
 	bool shouldClose();
 	void exit();
-	Window* primaryWindow;
-	static FlyCamera* primaryCamera;
 };
 #endif
