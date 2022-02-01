@@ -2,9 +2,13 @@
 #include "engine.h"
 
 std::vector<Vertex> triangles = {
-	Vertex{{-0.5f, -0.5f, 0.0f}, {0.9f,  0.1f, 0.12f, 1.0f}, {1.0f, 1.0f}},
-	Vertex{{0.5f,  -0.5f, 0.0f}, {0.1f,  0.9f, 0.12f, 1.0f}, {1.0f, 0.0f}},
-	Vertex{{0.0f,  0.5f, 0.0f}, {0.12f, 0.9f, 0.1f,  1.0f},  {0.0f, 1.0f}},
+	Vertex{{-0.5f, -0.5f, 0.0f}, {1.0f,  1.0f, 1.0f, 1.0f}, {0.0f, 0.0f}}, // bot left corner
+	Vertex{{0.5f,  -0.5f, 0.0f}, {1.0f,  1.0f, 1.0f, 1.0f}, {1.0f, 0.0f}}, // bot right corner
+	Vertex{{0.5f,  0.5f, 0.0f}, {1.0f,  1.0f, 1.0f, 1.0f},  {1.0f, 1.0f}}, // top right corner
+
+	Vertex{{-0.5f, -0.5f, 0.0f}, {1.0f,  1.0f, 1.0f, 1.0f}, {0.0f, 0.0f}}, // bot left corner
+	Vertex{{-0.5f,  0.5f, 0.0f}, {1.0f,  1.0f, 1.0f, 1.0f}, {0.0f, 1.0f}}, // top right corner
+	Vertex{{0.5f,  0.5f, 0.0f}, {1.0f,  1.0f, 1.0f, 1.0f},  {1.0f, 1.0f}}, // top right corner
 };
 
 Object* testObject;
