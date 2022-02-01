@@ -34,6 +34,8 @@ Engine::Engine()
 		throw "Failed to initialize GLEW Library.";
 	}
 
+	glEnable(GL_DEPTH_TEST);
+
 	testObject = new Object("Kanna");
 	testObject->setMesh(new Mesh(triangles));
 	testObject->setTexture(new Texture("textures/test.jpg"));
@@ -51,7 +53,7 @@ void Engine::update()
 {
 	// Clear the screen
 	glClearColor(99.0f / 255.0f, 221.0f / 255.0f, 255.0f / 255.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	testObject->update();
 
