@@ -11,3 +11,7 @@ bool Input::isKeyUp(int key) {
 	int state = glfwGetKey(getWindow(), key);
 	return state == GLFW_RELEASE;
 }
+
+void Input::getCursorPos(double *xpos, double *ypos) {
+	glfwGetCursorPos(getWindow(), xpos, ypos);
+}

@@ -7,6 +7,7 @@ class Input {
 	public:
 		static bool isKeyDown(int key);
 		static bool isKeyUp(int key);
+		static void getCursorPos(double* xpos, double* ypos);
 private:
 	Input();
 	static GLFWwindow* getWindow() {

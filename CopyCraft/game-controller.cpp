@@ -1,4 +1,4 @@
 #include "game-controller.h"
 
-FlyCamera* GameController::primaryCamera;
+Camera* GameController::primaryCamera;
 Window* GameController::primaryWindow;

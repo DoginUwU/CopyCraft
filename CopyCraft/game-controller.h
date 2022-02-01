@@ -2,12 +2,12 @@
 #define GAMECONTROLLER_H
 #pragma once
 #include "window.h"
-#include "fly-camera.h"
+#include "camera.h"
 
 class GameController {
 public:
 	static Window* primaryWindow;
-	static FlyCamera* primaryCamera;
+	static Camera* primaryCamera;
 private:
 	GameController();
 };

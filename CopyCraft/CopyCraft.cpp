@@ -1,7 +1,4 @@
-﻿// CopyCraft.cpp: define o ponto de entrada para o aplicativo.
-//
-
-#include "CopyCraft.h"
+﻿#include "CopyCraft.h"
 
 std::vector<Vertex> triangles = {
 	Vertex{{-0.5f, -0.5f, 0.0f}, {1.0f,  1.0f, 1.0f, 1.0f}, {0.0f, 0.0f}}, // bot left corner
@@ -17,8 +14,8 @@ int main()
 {
 	Engine* engine = new Engine();
 
-	GameController::primaryWindow = new Window(1270, 720, "CopyCraft", true);
-	GameController::primaryCamera = new FlyCamera();
+	GameController::primaryWindow = new Window(1270, 720, "Engine", true);
+	GameController::primaryCamera = new Camera();
 
 	engine->initialize();
 

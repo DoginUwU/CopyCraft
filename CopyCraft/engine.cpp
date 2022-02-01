@@ -1,6 +1,12 @@
 #include <GL/glew.h>
 #include "engine.h"
 
+void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+
+// camera
+float lastX, lastY;
+bool firstMouse = true;
+
 Engine::Engine()
 {
 	if (!glfwInit()) throw "Failed to initialize GLFW Library.";
@@ -19,6 +25,10 @@ void Engine::initialize() {
 	if (glewInit() != GLEW_OK) throw "Failed to initialize GLEW Library.";
 
 	glEnable(GL_DEPTH_TEST);
+
+	glfwSetCursorPosCallback(GameController::primaryWindow->getWindow(), mouse_callback);
+	// tell GLFW to capture our mouse
+	glfwSetInputMode(GameController::primaryWindow->getWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 }
 
 void Engine::update()
@@ -31,11 +41,48 @@ void Engine::update()
 		obj.update();
 	}
 
-	GameController::primaryWindow->update();
+	processInput(GameController::primaryWindow->getWindow());
 	GameController::primaryCamera->update();
+	GameController::primaryWindow->update();
 	DeltaTime::update();
 
 	glfwPollEvents();
+}
+
+void Engine::processInput(GLFWwindow* window)
+{
+	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, true);
+
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+		GameController::primaryCamera->ProcessKeyboard(FORWARD, DeltaTime::deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		GameController::primaryCamera->ProcessKeyboard(BACKWARD, DeltaTime::deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+		GameController::primaryCamera->ProcessKeyboard(LEFT, DeltaTime::deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+		GameController::primaryCamera->ProcessKeyboard(RIGHT, DeltaTime::deltaTime);
+}
+
+void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
+{
+	float xpos = static_cast<float>(xposIn);
+	float ypos = static_cast<float>(yposIn);
+
+	if (firstMouse)
+	{
+		lastX = xpos;
+		lastY = ypos;
+		firstMouse = false;
+	}
+
+	float xoffset = xpos - lastX;
+	float yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
+
+	lastX = xpos;
+	lastY = ypos;
+
+	GameController::primaryCamera->ProcessMouseMovement(xoffset, yoffset);
 }
 
 bool Engine::shouldClose() {

@@ -28,7 +28,7 @@ void Object::updateShaders()
 
 	Shader::setUniform(shaders->programId, "uTransform", transform->getTransform());
 	Shader::setUniform(shaders->programId, "uProjection", GameController::primaryCamera->projection);
-	Shader::setUniform(shaders->programId, "uView", GameController::primaryCamera->transform->getTransform());
+	Shader::setUniform(shaders->programId, "uView", GameController::primaryCamera->GetViewMatrix());
 
 	glUseProgram(shaders->programId);
 
