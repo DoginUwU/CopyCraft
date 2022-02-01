@@ -10,11 +10,13 @@
 #include "input.h"
 #include "vertex.h"
 #include "object.h"
+#include "fly-camera.h"
 
 class Engine {
 public:
 	Engine();
 	Window* primaryWindow;
+	static FlyCamera* primaryCamera;
 
 private:
 	void update();

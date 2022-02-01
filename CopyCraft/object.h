@@ -3,9 +3,10 @@
 #pragma once
 #include "transform.h"
 #include "mesh.h"
-#include "shaderProgram.h"
+#include "shader-program.h"
 #include "texture.h"
 #include "file.h"
+#include "engine.h"
 
 class Object {
 public:

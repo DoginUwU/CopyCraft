@@ -13,6 +13,8 @@ std::vector<Vertex> triangles = {
 
 Object* testObject;
 
+FlyCamera* Engine::primaryCamera;
+
 Engine::Engine()
 {
 	if (!glfwInit()) {
@@ -35,6 +37,8 @@ Engine::Engine()
 	testObject = new Object("Kanna");
 	testObject->setMesh(new Mesh(triangles));
 	testObject->setTexture(new Texture("textures/test.jpg"));
+
+	primaryCamera = new FlyCamera();
 
 	while (!primaryWindow->shouldClose()) {
 		update();

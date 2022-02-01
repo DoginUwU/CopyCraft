@@ -2,7 +2,6 @@
 #define INPUT_H
 #pragma once
 #include <GLFW/glfw3.h>
-#include "engine.h"
 
 class Input {
 	public:

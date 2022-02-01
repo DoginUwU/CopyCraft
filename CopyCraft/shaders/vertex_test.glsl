@@ -13,7 +13,7 @@ out vec2 textureCoord;
 
 void main() {
 	// gl_Position = uProjection * uView * (uTransform * vec4(aPosition, 1.0));
-	gl_Position = uTransform * vec4(aPosition, 1.0);
+	gl_Position = uProjection * uView * (uTransform * vec4(aPosition, 1.0));
 	vertexColor = aColour;
 	textureCoord = aTexture;
 }
