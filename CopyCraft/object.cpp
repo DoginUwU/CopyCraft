@@ -4,6 +4,7 @@
 Object::Object(const char* objectName)
 {
 	name = objectName;
+	transform = new Transform();
 	mesh = new Mesh({});
 	texture = new Texture(nullptr);
 	shaders = new ShaderProgram(File::readFromFile("shaders/vertex_test.glsl").c_str(),
@@ -24,6 +25,8 @@ void Object::updateShaders()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, position));
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_TRUE, sizeof(Vertex), (void*)offsetof(Vertex, color));
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texture));
+
+	Shader::setUniform(shaders->programId, "uTransform", transform->getTransform());
 
 	glUseProgram(shaders->programId);
 

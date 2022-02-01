@@ -1,6 +1,7 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 #pragma once
+#include "transform.h"
 #include "mesh.h"
 #include "shaderProgram.h"
 #include "texture.h"
@@ -16,6 +17,7 @@ public:
 	virtual void setShaders(ShaderProgram* newShaderProgram);
 	virtual void destroy();
 protected:
+	Transform* transform;
 	Mesh* mesh;
 	ShaderProgram* shaders;
 	Texture* texture;

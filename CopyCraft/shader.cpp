@@ -15,6 +15,12 @@ Shader::Shader(const char* source, GLenum shaderType)
 	checkShaderErrors();
 }
 
+void Shader::setUniform(int programId, const char* name, glm::mat4 value)
+{
+	unsigned int loc = glGetUniformLocation(programId, name);
+	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(value));
+}
+
 void Shader::checkShaderErrors()
 {
 	GLint isCompiled = GL_FALSE;
