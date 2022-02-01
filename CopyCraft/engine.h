@@ -9,8 +9,7 @@
 #include "window.h"
 #include "input.h"
 #include "vertex.h"
-#include "shaderProgram.h"
-#include "file.h"
+#include "object.h"
 
 class Engine {
 public:
@@ -20,8 +19,6 @@ public:
 private:
 	void update();
 	void exit();
-	void test();
-	ShaderProgram* shaderProgram;
 };
 
 #endif
