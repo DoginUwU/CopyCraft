@@ -6,7 +6,7 @@
 class ShaderProgram {
 public:
 	ShaderProgram(const char* vertexShaderFile, const char* fragmentShaderFile);
-	GLuint programId;
+	int programId;
 	Shader* vertexShader; 
 	Shader* fragmentShader;
 

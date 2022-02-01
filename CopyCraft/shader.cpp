@@ -1,7 +1,7 @@
 #include <GL/glew.h>
 #include "shader.h"
 
-Shader::Shader(const char* source, GLenum shaderType)
+Shader::Shader(const char* source, int shaderType)
 {
 	// Create an empty shader handler
 	shaderId = glCreateShader(shaderType);

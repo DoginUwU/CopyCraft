@@ -10,7 +10,7 @@
 
 class Shader {
 public:
-	Shader(const char* source, GLenum shaderType);
+	Shader(const char* source, int shaderType);
 	static void setUniform(int programId, const char* name, glm::mat4 value);
 	uint32_t shaderId;
 private:
